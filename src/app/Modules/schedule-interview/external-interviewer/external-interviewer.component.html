@@ -1,0 +1,51 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Add External Interviewer</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <form [formGroup]="addForm">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" placeholder="First Name">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Last Name">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Id</mat-label>
+                        <input matInput formControlName="emailId" placeholder="Email Id">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput formControlName="phoneNumber" placeholder="phone Number">
+                    </mat-form-field>
+                </div>
+           
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <div fxFlex="100" fxFlex.gt-xs="20">
+                        <button mat-raised-button (click)="Save(addForm.value)" style="background-color: #553D67; color:#ffffff;">
+                            Save
+                        </button>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="20">
+                        <button mat-raised-button (click)="Close()" style="background-color: #553D67; color:#ffffff;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </mat-card-content>
+    </mat-card>
+</div>

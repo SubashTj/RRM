@@ -1,0 +1,59 @@
+[
+    {
+        "text": "Dashboard",
+        "icon": "dashboard",
+        "routerLink": "/dashboard"
+    },
+    {
+        "text": "Requirement",
+        "icon": "assignment",
+        "children": [
+            {
+                "text": "OverView",
+                "icon": "dashboard",
+                "routerLink": "/requirement/overview"
+            },
+            {
+                "text": "Add New",
+                "icon": "input",
+                "routerLink": "/requirement/create"
+            },
+            {
+                "text": "Requirement Report",
+                "icon": "layers",
+                "routerLink": "/requirement/report"
+            }
+        ]
+    },
+    {
+        "text": "Deviation-Report",
+        "icon": "layers",
+        "routerLink": "/deviation"
+    },
+    {
+        "text": "Schedule-Interview",
+        "icon": "assignment",
+        "children": [
+            {
+                "text": "Schedule-Interview",
+                "icon": "dashboard",
+                "routerLink": "/schedule-interview/schedule-interview"
+            },
+            {
+                "text": "Add New",
+                "icon": "input",
+                "routerLink": "/schedule-interview/create-interview"
+            }
+        ]
+    },
+    {
+        "text": "HR Interview-Questions",
+        "icon": "layers",
+        "routerLink": "/interview-question"
+    },
+    {
+        "text": "HR-Daily-Status",
+        "icon": "layers",
+        "routerLink": "/daily-status"
+    }
+]

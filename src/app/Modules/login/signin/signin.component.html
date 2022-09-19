@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+    <mat-card-title style="text-align:center;">SINGIN YOUR ACCOUNT</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+        <form [formGroup]="signinForm">
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="username" placeholder="User Name">
+                <mat-error
+                    *ngIf="submitted && signinForm.controls['username'].hasError('required') || signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched">
+                    Please Enter Valid Username
+                </mat-error>
+
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="Password">
+                <mat-error
+                    *ngIf="submitted && signinForm.controls['password'].hasError('password') || signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched">
+                    Please Enter Valid Password
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" (click)="signin(signinForm.value)">Singin</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

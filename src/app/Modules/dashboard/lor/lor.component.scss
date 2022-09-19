@@ -1,0 +1,26 @@
+mat-card {
+    margin-top: 30px;
+}
+
+.grid {
+    margin-left: 20px;
+    height: auto;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    vertical-align: middle;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+mat-form-field {
+    width: 80%;
+}

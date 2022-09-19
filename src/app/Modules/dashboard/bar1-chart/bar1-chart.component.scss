@@ -1,0 +1,21 @@
+#chart {
+    max-width: 350px;
+    margin: 35px auto;
+}
+
+mat-form-field {
+    width: 80%;
+}
+
+button {
+    margin-top: 15px;
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    vertical-align: middle;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}

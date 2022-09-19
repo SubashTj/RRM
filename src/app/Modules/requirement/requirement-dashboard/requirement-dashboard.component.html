@@ -1,0 +1,165 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Requirement Statistics</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                    <mat-card class="grid" style="background-color:#ADD8E6 ;">
+                        <h5 class="text right">No. of open requirements
+                            :<strong>{{summary.NoOfOpenRequirements}}</strong></h5>
+                    </mat-card>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                    <mat-card class="grid" style="background-color:#4EE2EC ;">
+                        <h5 class="text right">Confirmed candidates this month
+                            :<strong>{{summary.ConfirmedByMonth}}</strong></h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                    <mat-card class="grid" style="background-color:#3EB489;">
+                        <h5 class="text right">Joined candidates this month :<strong> {{summary.JoinedByMonth}}</strong>
+                        </h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                    <mat-card class="grid" style="background-color: #FFCE44;">
+                        <h5 class="text right">Candidates on Hold this month :<strong> {{summary.HoldByMonth}}</strong>
+                        </h5>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Requirement List</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="25" class="button">
+                    <button mat-raised-button style="background-color: #553D67; color:#ffffff;" (click)="Add()">
+                        <mat-icon>add</mat-icon>Add New
+                    </button>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                </div>
+            </div>
+
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="requirementId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Requirement Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Requirement_Id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="requirementName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Requirement Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Requirement_Name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="revenue">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Designation </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Designation}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="clientName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> TechSkill </th>
+                        <td mat-cell *matCellDef="let element"> {{element.TechnicalSkills_Required}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="scheduled">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Experience </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Experience_Required}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="conducted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Requested Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CreatedOn}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="panelscheduled">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Elapsed Days </th>
+                        <td mat-cell *matCellDef="let element"> {{element.REPORTEDDATE}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="panelconducted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> To OnBoard </th>
+                        <td mat-cell *matCellDef="let element"> {{element.OnBoard}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="selected">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Actions </th>
+                        <td mat-cell *matCellDef="let element"> <button mat-icon-button
+                                (click)="Update(element.Requirement_Id)"
+                                style="background-color: #553D67; color:#ffffff;">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+
+                <mat-paginator [length]="paginationDTO.totalSize" [pageSize]="paginationDTO.length"
+                    [pageIndex]="paginationDTO.draw" [pageSizeOptions]="[pageSizeOptions]"
+                    (page)="onPaginateChange($event)" aria-label="Select page of users"></mat-paginator>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Status Summary</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="14">
+                    <mat-card class="grid" style="background-color:#3EB489;">
+                        <h5 class="text right">Hold:<strong>{{summary.Hold}}</strong></h5>
+                    </mat-card>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-xs="14">
+                    <mat-card class="grid" style="background-color: #E9967A;">
+                        <h5 class="text right">Progress :<strong> {{summary.Inprogress}}</strong></h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="14">
+                    <mat-card class="grid" style="background-color:#F08080;">
+                        <h5 class="text right">Joined:<strong> {{summary.Joined}}</strong></h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="14">
+                    <mat-card class="grid" style="background-color:#ADD8E6;">
+                        <h5 class="text right">Confirmed :<strong> {{summary.Confirmed}}</strong></h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="22">
+                    <mat-card class="grid" style="background-color: #E67451">
+                        <h5 class="text right">Profile Submitted To Client
+                            :<strong>{{summary.ProfileSubmitedtoClient}}</strong></h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="22">
+                    <mat-card class="grid" style="background-color:#f0ece2;">
+                        <h5 class="text right">Client Yet To Comeback :<strong>{{summary.ClientYetToComeback}}</strong>
+                        </h5>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+</div>

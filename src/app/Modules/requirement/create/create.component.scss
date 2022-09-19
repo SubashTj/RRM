@@ -1,0 +1,27 @@
+label {
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    zoom: 1;
+    /* for IE7*/
+    padding-top: 25px;
+    text-align: right;
+}
+
+mat-form-field {
+    margin-top: 15px;
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    vertical-align: middle;
+    margin-left: 30px
+}
+
+mat-checkbox {
+    margin-top: 20px;
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    vertical-align: middle;
+    margin-left: 30px
+}

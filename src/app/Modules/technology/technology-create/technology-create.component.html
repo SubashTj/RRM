@@ -1,0 +1,33 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Create Technology Category</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <form [formGroup]="addForm">
+                    <div fxFlex="100" fxFlex.gt-xs="100">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Technology Category</mat-label>
+                            <input matInput formControlName="Technology_Name" placeholder="Technology Category">
+                        </mat-form-field>
+                    </div>
+                </form>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <div fxFlex="100" fxFlex.gt-xs="30">
+                        <button mat-raised-button (click)="Create(addForm)"
+                            style="background-color: #553D67; color:#ffffff;">
+                            Save
+                        </button>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="30">
+                        <button mat-raised-button (click)="Close()" style="background-color: #553D67; color:#ffffff;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

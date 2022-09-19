@@ -1,0 +1,44 @@
+mat-card {
+    margin-top: 30px;
+}
+
+.grid {
+    margin-left: 20px;
+}
+
+.button {
+    margin-top: 15px;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}

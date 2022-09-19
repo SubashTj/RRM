@@ -1,0 +1,44 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title> Consultant Opening</mat-card-title>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource4" matSort>
+                <ng-container matColumnDef="requirementId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Recruiter Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Recruiter}} </td>
+                </ng-container>
+                <ng-container matColumnDef="requirementName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Requirement Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Requirement_Name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="revenue">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Required For</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Required_For}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="clientName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Number Of Position</th>
+                    <td mat-cell *matCellDef="let element"> {{element.NumberOfPositions}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="requestDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Requested Date</th>
+                    <td mat-cell *matCellDef="let element"> {{element.CreatedOn}} </td>
+                </ng-container>
+                <ng-container matColumnDef="joiningStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Joining Status</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Joiningstatus}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator MatPaginator4 [length]="paginationDTO4.totalSize4" [pageSize]="paginationDTO4.length4"
+                [pageIndex]="paginationDTO4.draw4" [pageSizeOptions]="[pageSizeOptions]"
+                (page)="onPaginateChange($event)" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

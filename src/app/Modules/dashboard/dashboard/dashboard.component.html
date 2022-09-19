@@ -1,0 +1,287 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#ADD8E6 ;">
+            <h4><strong>{{details.LosingRevenue}}</strong></h4>
+            <h4 class="text right">Losing Revenue</h4>
+        </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#4EE2EC ;">
+            <h4><strong>{{details.For_A_Vip}}</strong></h4>
+            <h4 class="text right">For a VIP</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#3EB489;">
+            <h4><strong>{{details.Normal}}</strong></h4>
+            <h4 class="text right">Normal</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color: #FFCE44;">
+            <h4><strong>{{details.Total}}</strong></h4>
+            <h4 class="text right">Total</h4>
+        </mat-card>
+    </div>
+</div>
+<div>
+    <app-lor></app-lor>
+</div>
+<div>
+    <app-ra></app-ra>
+</div>
+<div>
+    <app-rs></app-rs>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#ADD8E6 ;">
+            <h4><strong>{{summary.NoofRequirements}}</strong></h4>
+            <h4 class="text right">No of requirements</h4>
+        </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#4EE2EC ;">
+            <h4><strong> {{summary.NoofOpening}}</strong></h4>
+            <h4 class="text right">Number Of Opening</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#3EB489;">
+            <h4><strong> {{summary.NoofOpeningClosed}}</strong></h4>
+            <h4 class="text right">Number Of Opening Closed</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color: #FFCE44;">
+            <h4><strong>{{summary.Inprogress}}</strong></h4>
+            <h4 class="text right">In Progress</h4>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#ADD8E6 ;">
+            <h4><strong>{{summary.Hold}}</strong></h4>
+            <h4 class="text right">Hold</h4>
+        </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#4EE2EC ;">
+            <h4><strong>{{summary.ConfirmedToJoin}}</strong></h4>
+            <h4 class="text right">Confirmed To Join</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color:#3EB489;">
+            <h4><strong> {{summary.ClientYetToComeback}}</strong></h4>
+            <h4 class="text right">Client Yet To Comeback</h4>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25">
+        <mat-card class="grid" style="background-color: #FFCE44;">
+            <h4><strong> {{summary.Joinees}}</strong></h4>
+            <h4 class="text right">Joinees</h4>
+        </mat-card>
+    </div>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="60">
+                    <mat-card-title> Requirments On Hold</mat-card-title>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="40">
+                    <div fxFlex="100" fxFlex.gt-xs="80">
+                        <mat-form-field appearance="outline">
+                            <mat-label>From Date</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="80">
+                        <mat-form-field appearance="outline">
+                            <mat-label>To Date</mat-label>
+                            <input matInput [matDatepicker]="picker1">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="5">
+                        <button mat-raised-button style="background-color: #553D67; color:#ffffff;">
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource5" matSort>
+
+                    <ng-container matColumnDef="requirementId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Requirement Code </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Requirement_Id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="requirementName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Requirement Name</th>
+                        <td mat-cell *matCellDef="let element"> {{element.Requirement_Name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="revenue">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Required For</th>
+                        <td mat-cell *matCellDef="let element"> {{element.Required_For}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="clientName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Designation</th>
+                        <td mat-cell *matCellDef="let element"> {{element.Designation}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="scheduled">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Technical Skills</th>
+                        <td mat-cell *matCellDef="let element"> {{element.TechnicalSkills_Required}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="conducted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Experience </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Experience_Required}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="requestDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Requested Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CreatedOn}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="elapsedDays">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Elapsed Days </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CurrentStatus}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="onBoard">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> To OnBoard </th>
+                        <td mat-cell *matCellDef="let element"> {{element.OnBoard}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator #MatPaginator5 [length]="paginationDTO5.totalSize5" [pageSize]="paginationDTO5.length5"
+                    [pageIndex]="paginationDTO5.draw5" [pageSizeOptions]="[pageSizeOptions]"
+                    (page)="onPaginateChange($event)" aria-label="Select page of users"></mat-paginator>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <app-donut-chart1></app-donut-chart1>
+</div>
+<br>
+<div>
+    <app-bar1-chart></app-bar1-chart>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="60">
+                    <mat-card-title> Offer and Acceptance breakup chart</mat-card-title>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="40" [formGroup]="DateForm">
+                    <div fxFlex="100" fxFlex.gt-xs="60">
+                        <mat-form-field appearance="outline">
+                            <mat-label>From Date</mat-label>
+                            <input matInput [matDatepicker]="picker4">
+                            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                            <mat-datepicker #picker4></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="60">
+                        <mat-form-field appearance="outline">
+                            <mat-label>To Date</mat-label>
+                            <input matInput [matDatepicker]="picker5">
+                            <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                            <mat-datepicker #picker5></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="5">
+                        <button mat-raised-button style="background-color: #553D67; color:#ffffff;">
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="50">
+                    <app-donut-chart></app-donut-chart>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="50">
+                    <app-bar-chart></app-bar-chart>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <app-co></app-co>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-card-title>% of interviews with recording</mat-card-title>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="40">
+                    <div fxFlex="100" fxFlex.gt-xs="40">
+                        <mat-form-field appearance="outline">
+                            <mat-select placeholder="Recruiters" formControlName="name">
+                                <mat-option *ngFor="let emp of allemp" [value]="emp.EmployeeICode"
+                                    (selectionChange)="SelectId($event)">
+                                    {{emp.EmployeeFirstName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="40">
+                        <mat-form-field appearance="outline">
+                            <mat-label>From Date</mat-label>
+                            <input matInput [matDatepicker]="picker6" formControlName="start">
+                            <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                            <mat-datepicker #picker6></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="40">
+                        <mat-form-field appearance="outline">
+                            <mat-label>To Date</mat-label>
+                            <input matInput [matDatepicker]="picker7" formControlName="end">
+                            <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                            <mat-datepicker #picker7></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="5">
+                        <button mat-raised-button style="background-color: #553D67; color:#ffffff;"
+                            (click)="GetInterview(DateForm.value)">
+                            <mat-icon>search</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <h3 style="text-align: center;">Percentage of interviews with recording:<strong>{{percentage}}</strong></h3>
+        </mat-card-content>
+    </mat-card>
+</div>
+<br>

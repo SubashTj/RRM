@@ -1,0 +1,42 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Edit Interview Question</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <form [formGroup]="addForm">
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Technology Category</mat-label>
+                        <mat-select placeholder="Technology Category" formControlName="Technology_Id">
+                            <mat-option *ngFor="let tech of technology" [value]="tech.TechnologyId" >
+                          {{tech.TechnologyName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Question</mat-label>
+                        <input matInput placeholder="Question" formControlName="questions">
+                    </mat-form-field>
+                </div>
+                </form>
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <div fxFlex="100" fxFlex.gt-xs="20">
+                        <button mat-raised-button (click)="Update(addForm)" style="background-color: #553D67; color:#ffffff;">
+                            Update
+                        </button>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="20">
+                        <button mat-raised-button (click)="Close()" style="background-color: #553D67; color:#ffffff;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

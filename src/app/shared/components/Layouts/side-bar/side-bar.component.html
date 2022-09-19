@@ -1,0 +1,29 @@
+<div class="sidebar-container">
+  <mat-toolbar style="background-color:#553D67 ;" class="sidebar-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon style="color: #ffff;">menu</mat-icon>
+    </button>
+    <h1 class="sidebar-app-name" style="color: #ffff;">RRM</h1>
+    <app-header></app-header>
+    <button mat-icon-button class="account" [matMenuTriggerFor]="accountMenu"><mat-icon>account_circle</mat-icon></button>
+ <mat-menu #accountMenu="matMenu">
+  <ng-container>
+    <button mat-menu-item (click)="SignOut()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </ng-container>
+ </mat-menu>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="sidebar-sidenav-container">
+    <mat-sidenav #snav mode="side" fixedTopGap="56" opened="true" style="background-color: #e0dfe0;">
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content class="router-container">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+ 
+</div>

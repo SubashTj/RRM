@@ -1,0 +1,144 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Interview schedule Statistics</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="33">
+                    <mat-card class="grid" style="background-color:#ADD8E6 ;">
+                        <h5 class="text right">Total Candidates :<strong> 48</strong></h5>
+                    </mat-card>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-xs="33">
+                    <mat-card class="grid" style="background-color:#4EE2EC ;">
+                        <h5 class="text right">Scheduled Candidates :
+                            <strong> 30</strong>
+                        </h5>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="33">
+                    <mat-card class="grid" style="background-color:#3EB489;">
+                        <h5 class="text right">Selected Candidates :
+                            <strong> 30</strong>
+                        </h5>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title> Schedule Interview List</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="25" class="button">
+                    <button mat-raised-button style="background-color: #553D67; color:#ffffff;" (click)="Add()">
+                        <mat-icon>add</mat-icon>Add New
+                    </button>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="25">
+                </div>
+            </div>
+
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="requirementId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Candidate Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CMCan_Name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="requirementName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade>Phone No </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CMCan_Phone}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="revenue">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Requirement Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CMSch_ShortComments}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="clientName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Interviewer </th>
+                        <td mat-cell *matCellDef="let element"> {{element.EmployeeName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="panelscheduled">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Date & Time </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CMSch_Time}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="panelconducted">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CanStatus}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="selected">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-heade> View </th>
+                        <td mat-cell *matCellDef="let element"> <button mat-icon-button (click)="View(element.CMCan_ID)"
+                                style="background-color: #553D67; color:#ffffff;">
+                                <mat-icon>remove_red_eye</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Actions </th>
+                        <td mat-cell *matCellDef="let element"> <button mat-icon-button
+                                (click)="Update(element.CMSch_ID)" style="background-color: #553D67; color:#ffffff;">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button style="background-color: #553D67; color:#ffffff;"
+                                (click)="Delete(element.CMSch_ID)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+
+                <mat-paginator [length]="paginationDTO.totalSize" [pageSize]="paginationDTO.length"
+                    [pageIndex]="paginationDTO.draw" [pageSizeOptions]="[pageSizeOptions]"
+                    (page)="onPaginateChange($event)" aria-label="Select page of users"></mat-paginator>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Scheduled Interview Details</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+
+            <div class="mat-elevation-z8">
+                <table id="customers">
+                    <thead>
+                        <tr>
+                        <th>Employee Name</th>
+                        <th *ngFor="let head of reqdates">{{head |date:'MM-dd-yyyy'}}</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let data of data">
+                        <tr>
+                        <td>{{data.employeename}}</td>
+                        <td>{{data.date1}}</td>
+                        <td>{{data.date2}}</td>
+                        <td>{{data.date3}}</td>
+                        <td>{{data.date4}}</td>
+                        <td>{{data.date5}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

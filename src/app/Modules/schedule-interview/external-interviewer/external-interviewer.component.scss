@@ -1,0 +1,8 @@
+mat-form-field {
+    margin-top: 15px;
+    display: inline-block;
+    *display: inline;
+    /* for IE7*/
+    vertical-align: middle;
+    width: 100%;
+}

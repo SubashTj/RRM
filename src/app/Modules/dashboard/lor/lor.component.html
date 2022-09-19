@@ -1,0 +1,48 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon>list</mat-icon>List of Open Requirements
+        </mat-card-title>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource1" matSort>
+
+                <ng-container matColumnDef="requirementId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Department </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="requirementName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade>Greater Than 60Days </th>
+                    <td mat-cell *matCellDef="let element"> {{element.G60}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="revenue">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Between 45 to 60 Days </th>
+                    <td mat-cell *matCellDef="let element"> {{element.B45To60}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="clientName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Between 35 to 45 Days </th>
+                    <td mat-cell *matCellDef="let element"> {{element.B30To45}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="scheduled">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Less Than 30 Days </th>
+                    <td mat-cell *matCellDef="let element"> {{element.L30}} </td>
+                </ng-container>
+                <ng-container matColumnDef="conducted">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-heade> Total </th>
+                    <td mat-cell *matCellDef="let element"> {{element.TotReqCount}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator #MatPaginator1 [length]="paginationDTO1.totalSize1" [pageSize]="paginationDTO1.length1"
+                [pageIndex]="paginationDTO1.draw1" [pageSizeOptions]="[5, 10, 25, 100]"
+                (page)="onPaginateChange($event)" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

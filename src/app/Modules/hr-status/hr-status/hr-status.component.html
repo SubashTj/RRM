@@ -1,0 +1,114 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>HR Daily-Status Report</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="100">
+                    <form [formGroup]="searchForm">
+                        <div fxLayout="row wrap" fxFlex.gt-xs="70">
+                            <div fxFlex="100" fxFlex.gt-xs="30">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Recruiter</mat-label>
+                                    <mat-select placeholder="Recruiter" formControlName="recruiterId">
+                                        <mat-option *ngFor="let employee of employees" [value]="employee.EmployeeICode">
+                                            {{employee.EmployeeFirstName}}{{employee.EmployeeLastName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="100" fxFlex.gt-xs="40">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Select Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="100" fxFlex.gt-xs="15">
+                                <button mat-raised-button style="background-color: #553D67; color:#ffffff;"
+                                    (click)="Show(searchForm.value)">Search</button>
+                            </div>
+                            <div fxFlex="100" fxFlex.gt-xs="15">
+                                <button mat-raised-button style="background-color: #553D67; color:#ffffff;"
+                                    (click)="Clear()">Clear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" *ngIf="isShown">
+
+                    <ng-container matColumnDef="requirementId">
+                        <th mat-header-cell *matHeaderCellDef> Requirement Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.requirementId}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="requirementName">
+                        <th mat-header-cell *matHeaderCellDef>Requirement Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.requirementName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="requiredFor">
+                        <th mat-header-cell *matHeaderCellDef> Required For </th>
+                        <td mat-cell *matCellDef="let element"> {{element.requiredFor}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="designation">
+                        <th mat-header-cell *matHeaderCellDef> Designation </th>
+                        <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="department">
+                        <th mat-header-cell *matHeaderCellDef> Department </th>
+                        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="techSkill">
+                        <th mat-header-cell *matHeaderCellDef> Technical Skills required </th>
+                        <td mat-cell *matCellDef="let element"> {{element.techSkill}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="requestedDate">
+                        <th mat-header-cell *matHeaderCellDef> Requested date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.requestedDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="requiredDate">
+                        <th mat-header-cell *matHeaderCellDef> Required Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.requiredDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Current status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="joinDate">
+                        <th mat-header-cell *matHeaderCellDef> Joined Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.joinDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="daysTaken">
+                        <th mat-header-cell *matHeaderCellDef> Days taken </th>
+                        <td mat-cell *matCellDef="let element"> {{element.daysTaken}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="taken">
+                        <th mat-header-cell *matHeaderCellDef> Days can be taken </th>
+                        <td mat-cell *matCellDef="let element"> {{element.taken}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="deviation">
+                        <th mat-header-cell *matHeaderCellDef> Deviation </th>
+                        <td mat-cell *matCellDef="let element"> {{element.deviation}} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

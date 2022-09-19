@@ -1,0 +1,43 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-xs="40">
+                <mat-card-title>Interview Voice Recording Details</mat-card-title>
+            </div>
+            <div fxFlex="100" fxFlex.gt-xs="60">
+                <div fxFlex="100" fxFlex.gt-xs="60">
+                    <mat-form-field appearance="outline">
+                        <mat-label>From Date</mat-label>
+                        <input matInput [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="60">
+                    <mat-form-field appearance="outline">
+                        <mat-label>To Date</mat-label>
+                        <input matInput [matDatepicker]="picker3">
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100" fxFlex.gt-xs="5">
+                    <button mat-raised-button style="background-color: #553D67; color:#ffffff;" (click)="GetData()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+        <div id="chart" *ngIf="isShown">
+            <apx-chart
+              [series]="chartOptions.series!"
+              [chart]="chartOptions.chart!"
+              [labels]="chartOptions.labels"
+              [responsive]="chartOptions.responsive!"
+            ></apx-chart>
+          </div>
+    </mat-card-content>
+</mat-card>
